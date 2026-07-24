@@ -50,13 +50,18 @@ body {
     min-height: 85vh;
     display: flex;
     align-items: center;
-    background: linear-gradient(
-        rgba(0, 0, 0, 0.55),
-        rgba(0, 0, 0, 0.55)
-    ),
-    url("../images/remodeling-hero.jpg");
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("../images/IMG_20260703_164409.png");
+
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+
     color: #fff;
     padding: 2rem;
 }
@@ -91,60 +96,7 @@ body {
     background-color: #e76f51;
 }
 /* Responsive design for tablets and phones */
-@media (max-width: 768px) {
-    .site-header {
-        padding: 1rem;
-    }
 
-    .navbar {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem 1rem;
-    }
-
-    .hero {
-        min-height: 75vh;
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-
-    .hero-content {
-        margin: 0 auto;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.2rem;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
-    .btn-primary {
-        width: 100%;
-        text-align: center;
-    }
-}
 .logo {
     color: #fff;
     text-decoration: none;
@@ -242,4 +194,106 @@ body {
     color: #fff;
     padding: 1.5rem;
     text-align: center;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Responsive design for tablets and phones */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 1rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem 1rem;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 2rem 1rem;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .page-banner {
+        padding: 3.5rem 1rem;
+    }
+
+    .page-banner h1 {
+        font-size: 2.1rem;
+    }
+
+    .services-section {
+        padding: 3.5rem 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .estimate-cta {
+        margin: 0 1rem 3.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 1.8rem;
+    }
 }
