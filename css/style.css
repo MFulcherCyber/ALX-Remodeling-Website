@@ -50,20 +50,20 @@ body {
     min-height: 85vh;
     display: flex;
     align-items: center;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.55)
-        ),
-        url("../images/IMG_20260703_164409.png");
-
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     color: #fff;
     padding: 2rem;
+}
+
+.hero {
+    background-image: linear-gradient(
+        rgba(1, 31, 23, 0.28),
+        rgba(1, 31, 23, 0.48)
+    );
+
+    color: #fffdf5;
 }
 
 .hero-content {
@@ -438,6 +438,16 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.estimate-subsection {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.estimate-subsection[hidden],
+.estimate-options[hidden] {
+    display: none;
+}
+
 /* Responsive design for tablets and phones */
 @media (max-width: 768px) {
     .estimate-section {
@@ -549,4 +559,137 @@ body {
     .section-heading h2 {
         font-size: 1.8rem;
     }
+}
+
+/* ========================================
+   ALX emerald and gold visual theme
+======================================== */
+
+html {
+    background-color: #063c2d;
+}
+
+body {
+    min-height: 100vh;
+    color: #f8f3e4;
+    background-color: #063c2d;
+
+    background-image:
+        linear-gradient(
+            rgba(2, 44, 33, 0.78),
+            rgba(2, 44, 33, 0.88)
+        ),
+        url("../images/emerald-texture.jpg");
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    position: relative;
+}
+
+/*
+Creates a gold version of the transparent ALX logo
+without modifying the original PNG.
+*/
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-color: #d4af37;
+
+    -webkit-mask-image: url("../images/alx-logo.png");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: clamp(320px, 58vw, 760px) auto;
+
+    mask-image: url("../images/alx-logo.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: clamp(320px, 58vw, 760px) auto;
+
+    opacity: 0.11;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > header,
+body > main,
+body > footer {
+    position: relative;
+    z-index: 1;
+}
+
+.site-header {
+    background-color: rgba(3, 48, 36, 0.96);
+    border-bottom: 2px solid #b8923e;
+}
+
+.logo {
+    color: #d4af37;
+}
+
+.nav-links a {
+    color: #f8f3e4;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.hero {
+    /*
+    Removes the previous remodeling photo but preserves
+    the emerald texture behind this section.
+    */
+    background-image: linear-gradient(
+        rgba(1, 31, 23, 0.28),
+        rgba(1, 31, 23, 0.48)
+    );
+
+    color: #fffdf5;
+}
+
+.page-banner {
+    background-color: rgba(3, 65, 48, 0.86);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.55);
+}
+
+.site-footer {
+    background-color: rgba(1, 35, 26, 0.96);
+    border-top: 1px solid #b8923e;
+}
+
+.btn-primary {
+    background-color: #d4af37;
+    color: #172a20;
+}
+
+.btn-primary:hover {
+    background-color: #edc967;
+}
+
+.eyebrow {
+    color: #d4af37;
+}
+
+.section-heading {
+    color: #f8f3e4;
+}
+
+/* Keep text readable inside light-colored cards and forms. */
+.service-card,
+.contact-form,
+.estimate-form {
+    color: #222;
+    background-color: rgba(255, 253, 247, 0.96);
+}
+
+.estimate-result {
+    background-color: rgba(3, 61, 46, 0.97);
+    border: 1px solid rgba(212, 175, 55, 0.65);
 }

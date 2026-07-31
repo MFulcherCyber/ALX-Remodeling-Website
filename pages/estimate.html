@@ -84,103 +84,226 @@
                         <option value="general">
                             General Renovation
                         </option>
+                        <option value="handyman">
+                            Handyman Services
+                        </option>
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="square-feet">
-                        Approximate Project Size
-                    </label>
+              <!-- Fields used for remodeling estimates -->
+                <div
+                    id="remodeling-fields"
+                    class="estimate-subsection"
+                    hidden
+                >
+                    <div class="form-group">
+                        <label for="square-feet">
+                            Approximate Project Size
+                     </label>
 
-                    <div class="input-with-unit">
-                        <input
-                            type="number"
-                            id="square-feet"
-                            name="squareFeet"
-                            min="20"
-                            max="5000"
-                            step="1"
-                            placeholder="Example: 250"
-                            required
-                        >
-
-                        <span>square feet</span>
-                    </div>
-
-                    <p class="field-help">
-                        Enter the approximate area affected by the
-                        remodeling project.
-                    </p>
-                </div>
-
-                <div class="form-group">
-                    <label for="quality-level">
-                        Finish Level
-                    </label>
-
-                    <select
-                        id="quality-level"
-                        name="qualityLevel"
+                     <div class="input-with-unit">
+                      <input
+                        type="number"
+                        id="square-feet"
+                        name="squareFeet"
+                        min="20"
+                        max="5000"
+                        step="1"
+                        placeholder="Example: 250"
                         required
-                    >
-                        <option value="">Select a finish level</option>
-                        <option value="budget">
-                            Budget
-                        </option>
-                        <option value="standard">
-                            Standard
-                        </option>
-                        <option value="premium">
-                            Premium
-                        </option>
-                    </select>
+                        disabled
+                     >
+
+                     <span>square feet</span>
                 </div>
 
-                <fieldset class="estimate-options">
-                    <legend>Additional Work</legend>
+                <p class="field-help">
+                    Enter the approximate area affected by the
+                    remodeling project.
+                </p>
+            </div>
 
-                    <p class="field-help">
-                        Select all items that may apply.
-                    </p>
+            <div class="form-group">
+                 <label for="quality-level">
+                     Finish Level
+                 </label>
 
-                    <div class="checkbox-grid">
-                        <label class="checkbox-option">
-                            <input
-                                type="checkbox"
-                                name="addons"
-                                value="demolition"
-                            >
-                            Demolition and removal
-                        </label>
+                <select
+                    id="quality-level"
+                    name="qualityLevel"
+                    required
+                    disabled
+                >
+                    <option value="">
+                        Select a finish level
+                    </option>
 
-                        <label class="checkbox-option">
-                            <input
-                                type="checkbox"
-                                name="addons"
-                                value="electrical"
-                            >
-                            Electrical changes
-                        </label>
+                    <option value="budget">
+                        Budget
+                    </option>
 
-                        <label class="checkbox-option">
-                            <input
-                                type="checkbox"
-                                name="addons"
-                                value="plumbing"
-                            >
-                            Plumbing changes
-                        </label>
+                    <option value="standard">
+                        Standard
+                    </option>
 
-                        <label class="checkbox-option">
-                            <input
-                                type="checkbox"
-                                name="addons"
-                                value="permits"
-                            >
-                            Permit allowance
-                        </label>
-                    </div>
-                </fieldset>
+                    <option value="premium">
+                        Premium
+                    </option>
+                </select>
+            </div>
+        </div>
+
+<!-- Optional work used for remodeling estimates -->
+<fieldset
+    class="estimate-options"
+    id="remodeling-addons"
+    hidden
+>
+    <legend>Additional Remodeling Work</legend>
+
+    <p class="field-help">
+        Select all items that may apply.
+    </p>
+
+    <div class="checkbox-grid">
+        <label class="checkbox-option">
+            <input
+                type="checkbox"
+                name="addons"
+                value="demolition"
+                disabled
+            >
+            Demolition and removal
+        </label>
+
+        <label class="checkbox-option">
+            <input
+                type="checkbox"
+                name="addons"
+                value="electrical"
+                disabled
+            >
+            Electrical changes
+        </label>
+
+        <label class="checkbox-option">
+            <input
+                type="checkbox"
+                name="addons"
+                value="plumbing"
+                disabled
+            >
+            Plumbing changes
+        </label>
+
+        <label class="checkbox-option">
+            <input
+                type="checkbox"
+                name="addons"
+                value="permits"
+                disabled
+            >
+            Permit allowance
+        </label>
+    </div>
+</fieldset>
+
+<!-- Fields used for handyman estimates -->
+<fieldset
+    class="estimate-options"
+    id="handyman-fields"
+    hidden
+>
+    <legend>Handyman Job Information</legend>
+
+    <div class="form-group">
+        <label for="handyman-job">
+            Type of Handyman Job
+        </label>
+
+        <select
+            id="handyman-job"
+            name="handymanJob"
+            required
+            disabled
+        >
+            <option value="">
+                Select a handyman job
+            </option>
+
+            <option value="tvMounting">
+                Television mounting
+            </option>
+
+            <option value="furnitureAssembly">
+                Furniture assembly
+            </option>
+
+            <option value="shelfMounting">
+                Shelf, picture, or wall décor mounting
+            </option>
+
+            <option value="doorRepair">
+                Interior door repair or adjustment
+            </option>
+
+            <option value="lockReplacement">
+                Lock or deadbolt replacement
+            </option>
+
+            <option value="faucetReplacement">
+                Faucet replacement
+            </option>
+
+            <option value="toiletService">
+                Toilet repair or replacement
+            </option>
+
+            <option value="lightFixture">
+                Light fixture replacement
+            </option>
+
+            <option value="ceilingFan">
+                Ceiling fan installation
+            </option>
+
+            <option value="drywallPatch">
+                Small drywall patch or repair
+            </option>
+
+            <option value="caulking">
+                Interior caulking or sealing
+            </option>
+
+            <option value="detectorInstallation">
+                Smoke or carbon-monoxide detector installation
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="handyman-quantity">
+            Number of Items or Repairs
+        </label>
+
+        <input
+            type="number"
+            id="handyman-quantity"
+            name="handymanQuantity"
+            min="1"
+            max="20"
+            step="1"
+            value="1"
+            required
+            disabled
+        >
+
+        <p class="field-help">
+            Enter how many fixtures, items, doors, patches,
+            or similar units require service.
+        </p>
+    </div>
+</fieldset>
 
                 <button type="submit" class="btn-primary">
                     Calculate Estimate

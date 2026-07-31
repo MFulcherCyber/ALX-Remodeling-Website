@@ -64,7 +64,7 @@ if (contactForm && formStatus) {
     });
 }
 
-// Rough remodeling estimate calculator
+// Rough remodeling and handyman estimate calculator
 const estimateForm = document.querySelector("#estimate-form");
 const estimateResult = document.querySelector("#estimate-result");
 const estimateRange = document.querySelector("#estimate-range");
@@ -72,8 +72,24 @@ const estimateBreakdown = document.querySelector(
     "#estimate-breakdown"
 );
 
+const projectTypeField = document.querySelector(
+    "#estimate-project-type"
+);
+
+const remodelingFields = document.querySelector(
+    "#remodeling-fields"
+);
+
+const remodelingAddons = document.querySelector(
+    "#remodeling-addons"
+);
+
+const handymanFields = document.querySelector(
+    "#handyman-fields"
+);
+
 // Demonstration pricing only.
-// Replace these values with verified ALX pricing later.
+// Alex should replace these values with verified ALX pricing.
 const projectRates = {
     kitchen: {
         label: "Kitchen remodeling",
@@ -167,11 +183,141 @@ const addonPrices = {
     }
 };
 
+// Demonstration handyman pricing per item or repair.
+const handymanRates = {
+    tvMounting: {
+        label: "Television mounting",
+        low: 150,
+        high: 300
+    },
+
+    furnitureAssembly: {
+        label: "Furniture assembly",
+        low: 100,
+        high: 250
+    },
+
+    shelfMounting: {
+        label: "Shelf, picture, or wall décor mounting",
+        low: 75,
+        high: 200
+    },
+
+    doorRepair: {
+        label: "Interior door repair or adjustment",
+        low: 125,
+        high: 400
+    },
+
+    lockReplacement: {
+        label: "Lock or deadbolt replacement",
+        low: 100,
+        high: 250
+    },
+
+    faucetReplacement: {
+        label: "Faucet replacement",
+        low: 150,
+        high: 350
+    },
+
+    toiletService: {
+        label: "Toilet repair or replacement",
+        low: 175,
+        high: 450
+    },
+
+    lightFixture: {
+        label: "Light fixture replacement",
+        low: 125,
+        high: 300
+    },
+
+    ceilingFan: {
+        label: "Ceiling fan installation",
+        low: 200,
+        high: 450
+    },
+
+    drywallPatch: {
+        label: "Small drywall patch or repair",
+        low: 150,
+        high: 450
+    },
+
+    caulking: {
+        label: "Interior caulking or sealing",
+        low: 100,
+        high: 300
+    },
+
+    detectorInstallation: {
+        label: "Smoke or carbon-monoxide detector installation",
+        low: 75,
+        high: 175
+    }
+};
+
 const usdFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0
 });
+
+/**
+ * Shows or hides a calculator section and enables or
+ * disables the form controls inside it.
+ */
+function setEstimateSectionState(section, enabled) {
+    if (!section) {
+        return;
+    }
+
+    section.hidden = !enabled;
+
+    const fields = section.querySelectorAll(
+        "input, select, textarea"
+    );
+
+    fields.forEach(function (field) {
+        field.disabled = !enabled;
+    });
+}
+
+/**
+ * Changes the calculator fields based on project type.
+ */
+function updateEstimateFormMode() {
+    if (!projectTypeField) {
+        return;
+    }
+
+    const selectedType = projectTypeField.value;
+    const isHandyman = selectedType === "handyman";
+
+    const isRemodeling =
+        selectedType !== "" &&
+        selectedType !== "handyman";
+
+    setEstimateSectionState(
+        remodelingFields,
+        isRemodeling
+    );
+
+    setEstimateSectionState(
+        remodelingAddons,
+        isRemodeling
+    );
+
+    setEstimateSectionState(
+        handymanFields,
+        isHandyman
+    );
+
+    if (estimateResult) {
+        estimateResult.hidden = true;
+    }
+}
 
 /**
  * Adds one item to the estimate breakdown.
@@ -187,7 +333,7 @@ function addEstimateBreakdownItem(text) {
 }
 
 /**
- * Calculates and displays the rough project estimate.
+ * Calculates and displays the rough estimate.
  */
 function calculateEstimate(event) {
     event.preventDefault();
@@ -207,79 +353,140 @@ function calculateEstimate(event) {
         formData.get("projectType") || ""
     );
 
-    const qualityLevel = String(
-        formData.get("qualityLevel") || ""
-    );
+    let lowEstimate = 0;
+    let highEstimate = 0;
 
-    const squareFeet = Number(
-        formData.get("squareFeet")
-    );
+    estimateBreakdown.replaceChildren();
 
-    const selectedProject = projectRates[projectType];
-    const selectedQuality =
-        qualityMultipliers[qualityLevel];
+    /*
+    Handyman jobs use per-item pricing instead of
+    square-footage pricing.
+    */
+    if (projectType === "handyman") {
+        const handymanJob = String(
+            formData.get("handymanJob") || ""
+        );
 
-    if (
-        !selectedProject ||
-        !selectedQuality ||
-        !Number.isFinite(squareFeet) ||
-        squareFeet <= 0
-    ) {
-        return;
-    }
+        const quantity = Number(
+            formData.get("handymanQuantity")
+        );
 
-    let lowEstimate = Math.max(
-        squareFeet * selectedProject.lowRate,
-        selectedProject.minimumLow
-    );
+        const selectedJob =
+            handymanRates[handymanJob];
 
-    let highEstimate = Math.max(
-        squareFeet * selectedProject.highRate,
-        selectedProject.minimumHigh
-    );
-
-    lowEstimate *= selectedQuality.multiplier;
-    highEstimate *= selectedQuality.multiplier;
-
-    const selectedAddons = estimateForm.querySelectorAll(
-        'input[name="addons"]:checked'
-    );
-
-    selectedAddons.forEach(function (checkbox) {
-        const addon = addonPrices[checkbox.value];
-
-        if (!addon) {
+        if (
+            !selectedJob ||
+            !Number.isInteger(quantity) ||
+            quantity < 1
+        ) {
             return;
         }
 
-        lowEstimate += addon.low;
-        highEstimate += addon.high;
-    });
+        lowEstimate =
+            selectedJob.low * quantity;
 
-    // Round estimates to the nearest $100.
-    lowEstimate = Math.round(lowEstimate / 100) * 100;
-    highEstimate = Math.round(highEstimate / 100) * 100;
+        highEstimate =
+            selectedJob.high * quantity;
+
+        addEstimateBreakdownItem(
+            selectedJob.label
+        );
+
+        addEstimateBreakdownItem(
+            `Quantity: ${quantity}`
+        );
+    } else {
+        /*
+        Remodeling jobs use square footage, finish level,
+        minimum project amounts, and optional add-ons.
+        */
+        const squareFeet = Number(
+            formData.get("squareFeet")
+        );
+
+        const qualityLevel = String(
+            formData.get("qualityLevel") || ""
+        );
+
+        const selectedProject =
+            projectRates[projectType];
+
+        const selectedQuality =
+            qualityMultipliers[qualityLevel];
+
+        if (
+            !selectedProject ||
+            !selectedQuality ||
+            !Number.isFinite(squareFeet) ||
+            squareFeet <= 0
+        ) {
+            return;
+        }
+
+        lowEstimate = Math.max(
+            squareFeet * selectedProject.lowRate,
+            selectedProject.minimumLow
+        );
+
+        highEstimate = Math.max(
+            squareFeet * selectedProject.highRate,
+            selectedProject.minimumHigh
+        );
+
+        lowEstimate *=
+            selectedQuality.multiplier;
+
+        highEstimate *=
+            selectedQuality.multiplier;
+
+        const selectedAddons =
+            estimateForm.querySelectorAll(
+                'input[name="addons"]:checked'
+            );
+
+        selectedAddons.forEach(function (checkbox) {
+            const addon =
+                addonPrices[checkbox.value];
+
+            if (!addon) {
+                return;
+            }
+
+            lowEstimate += addon.low;
+            highEstimate += addon.high;
+        });
+
+        addEstimateBreakdownItem(
+            `${selectedProject.label}: ` +
+            `${squareFeet.toLocaleString("en-US")} square feet`
+        );
+
+        addEstimateBreakdownItem(
+            selectedQuality.label
+        );
+
+        selectedAddons.forEach(function (checkbox) {
+            const addon =
+                addonPrices[checkbox.value];
+
+            if (addon) {
+                addEstimateBreakdownItem(
+                    addon.label
+                );
+            }
+        });
+    }
+
+    // Round the final range to the nearest $25.
+    lowEstimate =
+        Math.round(lowEstimate / 25) * 25;
+
+    highEstimate =
+        Math.round(highEstimate / 25) * 25;
 
     estimateRange.textContent =
         `${usdFormatter.format(lowEstimate)} – ` +
         `${usdFormatter.format(highEstimate)}`;
-
-    estimateBreakdown.replaceChildren();
-
-    addEstimateBreakdownItem(
-        `${selectedProject.label}: ` +
-        `${squareFeet.toLocaleString("en-US")} square feet`
-    );
-
-    addEstimateBreakdownItem(selectedQuality.label);
-
-    selectedAddons.forEach(function (checkbox) {
-        const addon = addonPrices[checkbox.value];
-
-        if (addon) {
-            addEstimateBreakdownItem(addon.label);
-        }
-    });
 
     estimateResult.hidden = false;
 
@@ -287,6 +494,15 @@ function calculateEstimate(event) {
         behavior: "smooth",
         block: "start"
     });
+}
+
+if (projectTypeField) {
+    projectTypeField.addEventListener(
+        "change",
+        updateEstimateFormMode
+    );
+
+    updateEstimateFormMode();
 }
 
 if (estimateForm) {
