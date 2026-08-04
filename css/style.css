@@ -448,6 +448,25 @@ body {
     display: none;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.header-logo {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+}
+
+.logo-link span {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
 /* Responsive design for tablets and phones */
 @media (max-width: 768px) {
     .estimate-section {
@@ -536,6 +555,15 @@ body {
 @media (max-width: 480px) {
     .logo {
         font-size: 1.2rem;
+    }
+
+    .header-logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    .logo-link span {
+        font-size: 1.05rem;
     }
 
     .nav-links {
