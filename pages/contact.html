@@ -58,10 +58,49 @@
                 possible about your remodeling project.
             </p>
         </div>
+        
+        <div
+            class="contact-estimate-summary"
+            id="contact-estimate-summary"
+            hidden
+                >
+                <p class="eyebrow">Your Preliminary Estimate</p>
+
+                    <h3 id="contact-estimate-title">
+                    Project Estimate
+                    </h3>
+
+                <p
+                class="contact-estimate-range"
+                id="contact-estimate-range"
+                ></p>
+
+                <p
+                    class="contact-estimate-details"
+                    id="contact-estimate-details"
+                ></p>
+
+                <p class="form-note">
+                    This is a preliminary planning estimate only.
+                    Alex will need to review the project before providing
+                    an official quote.
+                </p>
+            </div>
 
         <form class="contact-form" id="contact-form">
             <div class="form-group">
                 <label for="full-name">Full Name</label>
+                <input
+                    type="hidden"
+                    id="estimate-range-field"
+                    name="estimateRange"
+                >
+
+                <input
+                    type="hidden"
+                    id="estimate-details-field"
+                    name="estimateDetails"
+                >
 
                 <input
                     type="text"
@@ -110,6 +149,7 @@
                     <option value="painting">Interior Painting</option>
                     <option value="drywall">Drywall Repair</option>
                     <option value="general">General Renovation</option>
+                    <option value="handyman">Handyman Services</option>
                     <option value="other">Other</option>
                 </select>
             </div>

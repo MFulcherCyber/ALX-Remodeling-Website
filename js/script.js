@@ -11,7 +11,78 @@ const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
 const messageField = document.querySelector("#message");
 const characterCount = document.querySelector("#character-count");
+const contactEstimateSummary = document.querySelector(
+    "#contact-estimate-summary"
+);
 
+const contactEstimateRange = document.querySelector(
+    "#contact-estimate-range"
+);
+
+const contactEstimateDetails = document.querySelector(
+    "#contact-estimate-details"
+);
+
+const contactProjectType = document.querySelector(
+    "#project-type"
+);
+
+const estimateRangeField = document.querySelector(
+    "#estimate-range-field"
+);
+
+const estimateDetailsField = document.querySelector(
+    "#estimate-details-field"
+);
+const contactUrlParams = new URLSearchParams(
+    window.location.search
+);
+
+const incomingProjectType =
+    contactUrlParams.get("projectType");
+
+const incomingEstimateRange =
+    contactUrlParams.get("estimateRange");
+
+const incomingEstimateDetails =
+    contactUrlParams.get("estimateDetails");
+    if (
+    contactEstimateSummary &&
+    incomingEstimateRange
+) {
+    contactEstimateSummary.hidden = false;
+
+    if (contactEstimateRange) {
+        contactEstimateRange.textContent =
+            incomingEstimateRange;
+    }
+
+    if (
+        contactEstimateDetails &&
+        incomingEstimateDetails
+    ) {
+        contactEstimateDetails.textContent =
+            incomingEstimateDetails;
+    }
+
+    if (estimateRangeField) {
+        estimateRangeField.value =
+            incomingEstimateRange;
+    }
+
+    if (estimateDetailsField) {
+        estimateDetailsField.value =
+            incomingEstimateDetails || "";
+    }
+
+    if (
+        contactProjectType &&
+        incomingProjectType
+    ) {
+        contactProjectType.value =
+            incomingProjectType;
+    }
+}
 /**
  * Updates the project-details character counter.
  */
@@ -68,6 +139,9 @@ if (contactForm && formStatus) {
 const estimateForm = document.querySelector("#estimate-form");
 const estimateResult = document.querySelector("#estimate-result");
 const estimateRange = document.querySelector("#estimate-range");
+const consultationLink = document.querySelector(
+    "#consultation-link"
+);
 const estimateBreakdown = document.querySelector(
     "#estimate-breakdown"
 );
@@ -488,6 +562,25 @@ function calculateEstimate(event) {
         `${usdFormatter.format(lowEstimate)} – ` +
         `${usdFormatter.format(highEstimate)}`;
 
+    const breakdownItems = Array.from(
+    estimateBreakdown.querySelectorAll("li")
+).map(function (item) {
+    return item.textContent;
+});
+
+const estimateDetails =
+    breakdownItems.join(" | ");
+
+if (consultationLink) {
+    const consultationParams = new URLSearchParams({
+        projectType: projectType,
+        estimateRange: estimateRange.textContent,
+        estimateDetails: estimateDetails
+    });
+
+    consultationLink.href =
+        `contact.html?${consultationParams.toString()}`;
+}
     estimateResult.hidden = false;
 
     estimateResult.scrollIntoView({
