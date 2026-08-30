@@ -5,16 +5,18 @@
 }
 
 body {
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
     color: #222;
-    background-color: #f8f9fa;
+    background-color: #f7f5ef;
 }
 
 .site-header {
-    background-color: #1d3557;
+    background-color: rgba(3, 48, 36, 0.96);
     color: #fff;
     padding: 1rem 2rem;
+    border-bottom: 2px solid #b8923e;
 }
 
 .navbar {
@@ -26,7 +28,22 @@ body {
 }
 
 .logo {
+    color: #d4af37;
     font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.logo-link span {
+    font-size: 1.25rem;
     font-weight: bold;
 }
 
@@ -46,71 +63,36 @@ body {
     text-decoration: underline;
 }
 
-.hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    padding: 2rem;
-}
-
-.hero {
-    background-image: linear-gradient(
-        rgba(1, 31, 23, 0.28),
-        rgba(1, 31, 23, 0.48)
-    );
-
-    color: #fffdf5;
-}
-
-.hero-content {
-    max-width: 700px;
-    margin-left: 8%;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
 .btn-primary {
     display: inline-block;
-    background-color: #f4a261;
-    color: #111;
+    background-color: #d4af37;
+    color: #172a20;
     padding: 0.9rem 1.4rem;
     border-radius: 6px;
     text-decoration: none;
     font-weight: bold;
+
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
 }
 
 .btn-primary:hover {
-    background-color: #e76f51;
+    background-color: #edc967;
+    transform: translateY(-2px);
 }
 /* Responsive design for tablets and phones */
-
-.logo {
-    color: #fff;
-    text-decoration: none;
-}
 
 .nav-links a.active {
     color: #f4a261;
 }
 
 .page-banner {
-    background-color: #263f63;
+    background-color: rgba(3, 65, 48, 0.96);
     color: #fff;
     padding: 5rem 2rem;
     text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.55);
 }
 
 .page-banner-content {
@@ -137,6 +119,7 @@ body {
     max-width: 700px;
     margin: 0 auto 3rem;
     text-align: center;
+    color: #222;
 }
 
 .section-heading h2 {
@@ -168,15 +151,14 @@ body {
 }
 
 .service-card h3 {
-    color: #1d3557;
-    margin-bottom: 0.75rem;
+    color: #0d4f3c;
 }
 
 .estimate-cta {
     max-width: 1100px;
     margin: 0 auto 5rem;
     padding: 2rem;
-    background-color: #1d3557;
+    background-color: #0d4f3c;
     color: #fff;
     border-radius: 8px;
     display: flex;
@@ -239,9 +221,7 @@ body {
 }
 
 .form-group label {
-    color: #1d3557;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    color: #0d4f3c;
 }
 
 .form-group input,
@@ -262,8 +242,8 @@ body {
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #1d3557;
-    outline: 3px solid rgba(29, 53, 87, 0.15);
+  border-color: #0d4f3c;
+outline: 3px solid rgba(13, 79, 60, 0.15);  
 }
 
 .contact-form button {
@@ -329,7 +309,7 @@ body {
 
 .estimate-form label,
 .estimate-options legend {
-    color: #1d3557;
+    color: #0d4f3c;
     font-weight: bold;
 }
 
@@ -345,8 +325,8 @@ body {
 
 .estimate-form input:focus,
 .estimate-form select:focus {
-    border-color: #1d3557;
-    outline: 3px solid rgba(29, 53, 87, 0.15);
+    border-color: #0d4f3c;
+    outline: 3px solid rgba(13, 79, 60, 0.15);
 }
 
 .input-with-unit {
@@ -398,7 +378,7 @@ body {
 .estimate-result {
     position: sticky;
     top: 2rem;
-    background-color: #1d3557;
+    background-color: #0d4f3c;
     color: #fff;
     border-radius: 8px;
     padding: 2rem;
@@ -448,23 +428,11 @@ body {
     display: none;
 }
 
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: #d4af37;
-    text-decoration: none;
-}
 
 .header-logo {
     width: 58px;
     height: 58px;
     object-fit: contain;
-}
-
-.logo-link span {
-    font-size: 1.25rem;
-    font-weight: bold;
 }
 
 .contact-estimate-summary {
@@ -537,24 +505,6 @@ body {
         gap: 0.75rem 1rem;
     }
 
-    .hero {
-        min-height: 75vh;
-        padding: 2rem 1rem;
-        text-align: center;
-    }
-
-    .hero-content {
-        margin: 0 auto;
-    }
-
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
     .page-banner {
         padding: 3.5rem 1rem;
     }
@@ -609,10 +559,6 @@ body {
         align-items: center;
     }
 
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-
     .btn-primary {
         width: 100%;
         text-align: center;
@@ -625,67 +571,6 @@ body {
     .section-heading h2 {
         font-size: 1.8rem;
     }
-}
-
-/* ========================================
-   ALX emerald and gold visual theme
-======================================== */
-
-html {
-    background-color: #063c2d;
-}
-
-body {
-    min-height: 100vh;
-    color: #f8f3e4;
-    background-color: #063c2d;
-
-    background-image:
-        linear-gradient(
-            rgba(2, 44, 33, 0.78),
-            rgba(2, 44, 33, 0.88)
-        ),
-        url("../images/emerald-texture.jpg");
-
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    position: relative;
-}
-
-/*
-Creates a gold version of the transparent ALX logo
-without modifying the original PNG.
-*/
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-
-    background-color: #d4af37;
-
-    -webkit-mask-image: url("../images/alx-logo.png");
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: clamp(320px, 58vw, 760px) auto;
-
-    mask-image: url("../images/alx-logo.png");
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: clamp(320px, 58vw, 760px) auto;
-
-    opacity: 0.11;
-    pointer-events: none;
-    z-index: 0;
-}
-
-body > header,
-body > main,
-body > footer {
-    position: relative;
-    z-index: 1;
 }
 
 .site-header {
@@ -707,44 +592,13 @@ body > footer {
     text-decoration: none;
 }
 
-.hero {
-    /*
-    Removes the previous remodeling photo but preserves
-    the emerald texture behind this section.
-    */
-    background-image: linear-gradient(
-        rgba(1, 31, 23, 0.28),
-        rgba(1, 31, 23, 0.48)
-    );
-
-    color: #fffdf5;
-}
-
-.page-banner {
-    background-color: rgba(3, 65, 48, 0.86);
-    border-bottom: 1px solid rgba(212, 175, 55, 0.55);
-}
-
 .site-footer {
     background-color: rgba(1, 35, 26, 0.96);
     border-top: 1px solid #b8923e;
 }
 
-.btn-primary {
-    background-color: #d4af37;
-    color: #172a20;
-}
-
-.btn-primary:hover {
-    background-color: #edc967;
-}
-
 .eyebrow {
     color: #d4af37;
-}
-
-.section-heading {
-    color: #f8f3e4;
 }
 
 /* Keep text readable inside light-colored cards and forms. */
@@ -758,4 +612,374 @@ body > footer {
 .estimate-result {
     background-color: rgba(3, 61, 46, 0.97);
     border: 1px solid rgba(212, 175, 55, 0.65);
+}
+
+/* ========================================
+   Homepage redesign
+======================================== */
+
+.home-hero {
+    min-height: 82vh;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+        url("../images/BackgroundALX.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+}
+
+.home-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.52) 50%,
+            rgba(0, 0, 0, 0.20) 100%
+        );
+}
+
+.home-hero-content {
+    position: relative;
+    z-index: 1;
+
+    width: min(700px, 90%);
+    margin-left: max(5%, calc((100vw - 1200px) / 2));
+
+    padding: 5rem 0;
+}
+
+.hero-eyebrow {
+    color: #d4af37;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+
+    margin-bottom: 1rem;
+}
+
+.home-hero h1 {
+    font-size: clamp(2.7rem, 5vw, 4.3rem);
+
+    line-height: 1.03;
+
+    max-width: 750px;
+
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+
+    max-width: 630px;
+
+    margin-bottom: 2rem;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.btn-secondary {
+    display: inline-block;
+
+    padding: 0.9rem 1.4rem;
+
+    border: 2px solid #fff;
+    border-radius: 6px;
+
+    color: #fff;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #171717;
+}
+
+.home-services {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 5rem 2rem 4rem;
+}
+
+.home-services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 1.5rem;
+}
+
+.photo-service-card {
+    min-height: 390px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.15);
+
+    cursor: pointer;
+}
+
+.service-card-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    background:
+        linear-gradient(
+            transparent 25%,
+            rgba(0, 0, 0, 0.85) 100%
+        );
+
+    transition:
+        background 0.35s ease;
+}
+
+.service-card-content {
+    width: 100%;
+
+    color: #fff;
+
+    padding: 2rem;
+
+    transform:
+        translateY(75px);
+
+    transition:
+        transform 0.35s ease;
+}
+
+.service-card-content h3 {
+    color: #fff;
+
+    font-size: 1.5rem;
+
+    margin-bottom: 0.75rem;
+}
+
+.service-card-content p {
+    opacity: 0;
+
+    transition:
+        opacity 0.35s ease;
+}
+
+.photo-service-card:hover
+.service-card-overlay {
+    background:
+        rgba(5, 55, 42, 0.72);
+}
+
+.photo-service-card:hover
+.service-card-content {
+    transform:
+        translateY(0);
+}
+
+.photo-service-card:hover
+.service-card-content p {
+    opacity: 1;
+}
+
+.services-action {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-dark {
+    display: inline-block;
+
+    background-color: #171717;
+    color: #fff;
+
+    padding: 0.9rem 1.5rem;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    transition:
+        background-color 0.25s ease;
+}
+
+.btn-dark:hover {
+    background-color: #0d4f3c;
+}
+
+.recent-work {
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.68),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("../images/BackgroundALX.png");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    padding: 5rem 2rem;
+}
+
+.recent-work-content {
+    width: min(650px, 100%);
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.recent-work h2 {
+    font-size: 2.5rem;
+
+    margin-bottom: 1rem;
+}
+
+.recent-work p {
+    margin-bottom: 2rem;
+}
+
+.home-estimate-cta {
+    max-width: 1100px;
+
+    margin: 5rem auto;
+
+    padding: 3rem;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 3rem;
+
+    background-color: #0d4f3c;
+
+    color: #fff;
+
+    border-radius: 12px;
+}
+
+.home-estimate-cta h2 {
+    font-size: 2rem;
+
+    margin-bottom: 0.75rem;
+}
+
+.home-estimate-cta p:not(.eyebrow) {
+    max-width: 650px;
+}
+
+@media (max-width: 900px) {
+
+    .home-services-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .home-estimate-cta {
+        margin:
+            3rem 1rem;
+
+        flex-direction:
+            column;
+
+        text-align:
+            center;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .home-hero {
+        min-height:
+            75vh;
+    }
+
+    .home-hero-content {
+        margin:
+            0 auto;
+
+        padding:
+            4rem 1.25rem;
+
+        text-align:
+            center;
+    }
+
+    .hero-actions {
+        justify-content:
+            center;
+    }
+
+    .home-services {
+        padding:
+            4rem 1rem;
+    }
+
+    .home-services-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .photo-service-card {
+        min-height:
+            340px;
+    }
+
+    /*
+    Phones don't have mouse hover,
+    so always show descriptions.
+    */
+    .service-card-content {
+        transform:
+            translateY(0);
+    }
+
+    .service-card-content p {
+        opacity:
+            1;
+    }
 }

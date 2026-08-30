@@ -9,8 +9,11 @@
 </head>
 
 <body>
+
+    <!-- Header -->
     <header class="site-header">
         <nav class="navbar">
+
             <a href="index.html" class="logo logo-link">
                 <img
                     src="images/alx-logo.png"
@@ -22,35 +25,377 @@
             </a>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="pages/services.html">Services</a></li>
-                <li><a href="pages/estimate.html">Get Estimate</a></li>
-                <li><a href="pages/contact.html">Contact</a></li>
+                <li>
+                    <a href="index.html" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/services.html">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/estimate.html">
+                        Get Estimate
+                    </a>
+                </li>
+
+                <li>
+                    <a href="pages/contact.html">
+                        Contact
+                    </a>
+                </li>
             </ul>
+
         </nav>
     </header>
 
+
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Remodeling and Handyman Services Built Around Your Home</h1>
-                <p>
-                    ALX provides home remodeling, repairs, installations,
-                    maintenance, and dependable handyman services for projects
-                    large and small.
+
+        <!-- HERO -->
+        <section class="home-hero">
+
+            <div class="home-hero-overlay"></div>
+
+            <div class="home-hero-content">
+
+                <p class="hero-eyebrow">
+                    Remodeling • Repairs • Handyman Services
                 </p>
-                <a href="pages/estimate.html" class="btn-primary">
-                    Get a Rough Estimate
-                </a>
+
+                <h1>
+                    Quality Work for the Home You Depend On
+                </h1>
+
+                <p class="hero-description">
+                    ALX Remodeling provides dependable remodeling,
+                    repair, installation, and handyman services for
+                    projects large and small.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a
+                        href="pages/estimate.html"
+                        class="btn-primary"
+                    >
+                        Get a Rough Estimate
+                    </a>
+
+                    <a
+                        href="pages/contact.html"
+                        class="btn-secondary"
+                    >
+                        Request a Consultation
+                    </a>
+
+                </div>
+
             </div>
+
         </section>
+
+
+        <!-- SERVICES INTRO -->
+        <section class="home-services">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    What We Do
+                </p>
+
+                <h2>
+                    Remodeling and Handyman Services
+                </h2>
+
+                <p>
+                    From complete renovations to smaller household
+                    repairs, ALX helps homeowners complete projects
+                    throughout their homes.
+                </p>
+
+            </div>
+
+
+            <!-- Service Photo Cards -->
+            <div class="home-services-grid">
+
+
+                <!-- BasementRemodeling -->
+                <article
+                    class="photo-service-card"
+                    style="background-image:url('images/projects/Basement-Remodel1/Basement-Remodel1.2A.jpg');
+                    "
+                >
+
+                    <div class="service-card-overlay">
+
+                        <div class="service-card-content">
+
+                            <h3>
+                                Basement Remodeling
+                            </h3>
+
+                            <p>
+                                Transform unfinished or outdated basement space
+                                into a more functional and finished part of the home.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Bathroom -->
+                <article
+                    class="photo-service-card"
+                    style="
+                        background-image:
+                        url('images/projects/Remodel-Bathroom/BathroomRemodel1.3.jpg');
+                    "
+                >
+
+                    <div class="service-card-overlay">
+
+                        <div class="service-card-content">
+
+                            <h3>
+                                Kitchen & Bathroom
+                            </h3>
+
+                            <p>
+                                Cabinets, vanities, fixtures,
+                                tile, flooring, painting, and
+                                complete room updates.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Deck Construction & Repair -->
+                <article
+                    class="photo-service-card"
+                    style="
+                        background-image:
+                        url('images/projects/Build-deck1/Built-Deck1.4.jpg');
+                    "
+                >
+
+                    <div class="service-card-overlay">
+
+                        <div class="service-card-content">
+
+                            <h3>
+                                Deck Construction & Repair
+                            </h3>
+
+                            <p>
+                                New deck construction, repairs, improvements,
+                                railings, and exterior carpentry work.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Drywall and Painting -->
+                <article
+                    class="photo-service-card"
+                    style="
+                        background-image:
+                        url('images/projects/Painting-Interior_Exterior/ExteriorPaint3.2A.jpg');
+                    "
+                >
+
+                    <div class="service-card-overlay">
+
+                        <div class="service-card-content">
+
+                            <h3>
+                                Drywall & Painting
+                            </h3>
+
+                            <p>
+                                Drywall repair, patching, finishing,
+                                preparation, and interior painting.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Doors, Trim & Carpentry -->
+                <article
+                    class="photo-service-card"
+                    style="
+                        background-image:
+                        url('images/projects/HandymanWork/Handy5A.jpg');
+                    "
+                >
+
+                    <div class="service-card-overlay">
+
+                        <div class="service-card-content">
+
+                            <h3>
+                                Doors, Trim & Carpentry
+                            </h3>
+
+                            <p>
+                                Interior doors, trim, finish
+                                carpentry, adjustments, repairs,
+                                and installation work.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Handyman -->
+                <article
+                    class="photo-service-card"
+                    style="
+                        background-image:
+                        url('images/projects/HandymanWork/Handy4.1.jpg');
+                    "
+                >
+
+                    <div class="service-card-overlay">
+
+                        <div class="service-card-content">
+
+                            <h3>
+                                Handyman Services
+                            </h3>
+
+                            <p>
+                                Mounting, assembly, fixture
+                                replacement, repairs, maintenance,
+                                and those smaller jobs that still
+                                need to get done.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <div class="services-action">
+
+                <a
+                    href="pages/services.html"
+                    class="btn-dark"
+                >
+                    View All Services
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- RECENT WORK -->
+        <section class="recent-work">
+
+            <div class="recent-work-content">
+
+                <p class="eyebrow">
+                    Real ALX Projects
+                </p>
+
+                <h2>
+                    See the Difference Quality Work Makes
+                </h2>
+
+                <p>
+                    ALX has completed remodeling, repair, flooring,
+                    finish work, and household improvement projects.
+                    We'll soon be adding project photos and
+                    before-and-after examples here.
+                </p>
+
+                <a
+                    href="pages/contact.html"
+                    class="btn-primary"
+                >
+                    Discuss Your Project
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ESTIMATE CTA -->
+        <section class="home-estimate-cta">
+
+            <div>
+
+                <p class="eyebrow">
+                    Planning a Project?
+                </p>
+
+                <h2>
+                    Start With a Rough Estimate
+                </h2>
+
+                <p>
+                    Answer a few questions about your remodeling
+                    or handyman project and receive an initial
+                    planning range.
+                </p>
+
+            </div>
+
+            <a
+                href="pages/estimate.html"
+                class="btn-primary"
+            >
+                Start My Estimate
+            </a>
+
+        </section>
+
     </main>
-<footer class="site-footer">
-    <p>
-        &copy; <span id="current-year"></span>
-        ALX Remodeling. All rights reserved.
-    </p>
-</footer>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <p>
+            &copy;
+            <span id="current-year"></span>
+            ALX Remodeling. All rights reserved.
+        </p>
+
+    </footer>
+
+
     <script src="js/script.js"></script>
+
 </body>
 </html>
