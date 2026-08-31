@@ -473,6 +473,118 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     pointer-events: none;
 }
 
+/* ========================================
+   Before & After Project Showcase
+======================================== */
+
+.project-showcase {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 6rem 2rem;
+}
+
+.project-grid {
+    display: grid;
+    gap: 4rem;
+}
+
+.project-card {
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.10);
+}
+
+.before-after-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.project-image {
+    height: 320px;
+    overflow: hidden;
+}
+
+.project-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 0.5s ease;
+}
+
+.project-image:hover img {
+    transform: scale(1.04);
+}
+
+.project-label {
+    position: absolute;
+
+    top: 1rem;
+    left: 1rem;
+
+    z-index: 2;
+
+    padding: 0.45rem 0.8rem;
+
+    background-color: #171717;
+    color: #fff;
+
+    border-radius: 4px;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+.project-label-after {
+    background-color: #0d4f3c;
+    color: #fff;
+}
+
+.project-card-content {
+    padding: 2rem 2.25rem;
+}
+
+.project-type {
+    margin-bottom: 0.4rem;
+
+    color: #b8923e;
+
+    font-size: 0.8rem;
+    font-weight: bold;
+
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.project-card-content h3 {
+    margin-bottom: 0.75rem;
+
+    color: #172a20;
+
+    font-size: 1.8rem;
+}
+
+.project-card-content p:last-child {
+    max-width: 800px;
+
+    color: #555;
+}
+
+.project-showcase-action {
+    margin-top: 3rem;
+
+    text-align: center;
+}
+
 /* Responsive design for tablets and phones */
 @media (max-width: 768px) {
     .estimate-section {
@@ -842,45 +954,6 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     background-color: #0d4f3c;
 }
 
-.recent-work {
-    min-height: 500px;
-
-    display: flex;
-    align-items: center;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, 0.68),
-            rgba(0, 0, 0, 0.68)
-        ),
-        url("../images/BackgroundALX.png");
-
-    background-size: cover;
-    background-position: center;
-
-    color: #fff;
-
-    padding: 5rem 2rem;
-}
-
-.recent-work-content {
-    width: min(650px, 100%);
-
-    margin: 0 auto;
-
-    text-align: center;
-}
-
-.recent-work h2 {
-    font-size: 2.5rem;
-
-    margin-bottom: 1rem;
-}
-
-.recent-work p {
-    margin-bottom: 2rem;
-}
-
 .home-estimate-cta {
     max-width: 1100px;
 
@@ -981,5 +1054,21 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     .service-card-content p {
         opacity:
             1;
+    }
+    .project-showcase {
+    padding: 4rem 1rem;
+    }
+
+    .before-after-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .project-image,
+    .project-image img {
+    min-height: 280px;
+    }
+
+    .project-card-content {
+    padding: 1.5rem;
     }
 }
