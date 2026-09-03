@@ -505,6 +505,7 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
 }
 
 .project-image {
+    position: relative;
     height: 320px;
     overflow: hidden;
 }
@@ -582,7 +583,75 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
 .project-showcase-action {
     margin-top: 3rem;
 
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1rem;
+}
+
+/* ========================================
+   Projects Page
+======================================== */
+
+.projects-page {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    padding: 6rem 2rem;
+}
+
+.projects-page-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 2rem;
+}
+
+.portfolio-card {
+    overflow: hidden;
+
+    background-color: #fff;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.10);
+}
+
+.portfolio-card img {
+    display: block;
+
+    width: 100%;
+    height: 280px;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.4s ease;
+}
+
+.portfolio-card:hover img {
+    transform: scale(1.04);
+}
+
+.portfolio-card-content {
+    padding: 1.75rem;
+}
+
+.portfolio-card-content h3 {
+    margin-bottom: 0.75rem;
+
+    color: #172a20;
+
+    font-size: 1.5rem;
+}
+
+.portfolio-card-content p:last-child {
+    color: #555;
 }
 
 /* Responsive design for tablets and phones */
@@ -1070,5 +1139,25 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
 
     .project-card-content {
     padding: 1.5rem;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .projects-page-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .projects-page {
+        padding: 4rem 1rem;
+    }
+
+    .projects-page-grid {
+        grid-template-columns:
+            1fr;
     }
 }
