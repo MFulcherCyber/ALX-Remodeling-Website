@@ -711,6 +711,11 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     padding: 3.5rem 1rem;
     }
 
+    .turnstile-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    }
     .contact-form {
     grid-template-columns: 1fr;
     padding: 1.5rem;
