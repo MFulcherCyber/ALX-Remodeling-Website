@@ -577,3 +577,76 @@ if (estimateForm) {
         calculateEstimate
     );
 }
+
+// ========================================
+// Project portfolio filtering
+// ========================================
+
+const projectFilterButtons =
+    document.querySelectorAll(".project-filter");
+
+const portfolioCards =
+    document.querySelectorAll(".portfolio-card");
+
+const projectEmptyMessage =
+    document.querySelector("#project-empty-message");
+
+
+if (
+    projectFilterButtons.length > 0 &&
+    portfolioCards.length > 0
+) {
+    projectFilterButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const selectedFilter =
+                button.dataset.filter;
+
+
+            // Update active filter button
+            projectFilterButtons.forEach(
+                function (filterButton) {
+                    filterButton.classList.remove("active");
+                }
+            );
+
+            button.classList.add("active");
+
+
+            // Count how many projects remain visible.
+            let visibleProjectCount = 0;
+
+
+            // Show or hide project cards.
+            portfolioCards.forEach(function (card) {
+
+                const cardCategory =
+                    card.dataset.category;
+
+                const shouldShow =
+                    selectedFilter === "all" ||
+                    cardCategory === selectedFilter;
+
+                card.classList.toggle(
+                    "hidden-project",
+                    !shouldShow
+                );
+
+                if (shouldShow) {
+                    visibleProjectCount += 1;
+                }
+
+            });
+
+
+            // Show an explanation if the category is empty.
+            if (projectEmptyMessage) {
+                projectEmptyMessage.hidden =
+                    visibleProjectCount !== 0;
+            }
+
+        });
+
+    });
+}
