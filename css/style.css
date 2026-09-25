@@ -723,6 +723,24 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     display: none;
 }
 
+/* ========================================
+   Section heading readability panels
+======================================== */
+
+.section-heading {
+    padding: 1.5rem 2rem;
+
+    background-color: rgba(255, 253, 247, 0.86);
+
+    border: 1px solid rgba(184, 146, 62, 0.35);
+    border-radius: 10px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
 /* Responsive design for tablets and phones */
 @media (max-width: 768px) {
     .estimate-section {
@@ -1228,6 +1246,9 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     .project-card-content {
     padding: 1.5rem;
     }
+    .section-heading {
+    padding: 1.25rem;
+    }
 }
 
 @media (max-width: 900px) {
@@ -1248,4 +1269,24 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
         grid-template-columns:
             1fr;
     }
+}
+
+/* ========================================
+   Readability box for selected gold labels
+======================================== */
+
+.eyebrow-box {
+    display: inline-block;
+
+    padding: 0.45rem 0.8rem;
+
+    background-color: rgba(0, 0, 0, 0.55);
+
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 6px;
+
+    color: #d4af37;
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
 }
