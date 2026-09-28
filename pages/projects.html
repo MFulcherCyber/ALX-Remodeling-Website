@@ -9,6 +9,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="description"
+        content="View completed ALX Remodeling projects including basement remodeling, deck construction, fencing, carpentry, and home improvement work."
+    >
+
     <title>Projects | ALX Remodeling</title>
 
     <link
@@ -43,7 +48,7 @@
 
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="estimate.html">Get Estimate</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -103,6 +108,7 @@
                     type="button"
                     class="project-filter active"
                     data-filter="all"
+                    aria-pressed="true"
                 >
                     All Projects
                 </button>
@@ -111,6 +117,7 @@
                     type="button"
                     class="project-filter"
                     data-filter="remodeling"
+                    aria-pressed="false"
                 >
                     Remodeling
                 </button>
@@ -119,6 +126,7 @@
                     type="button"
                     class="project-filter"
                     data-filter="decks"
+                    aria-pressed="false"
                 >
                     Decks
                 </button>
@@ -127,16 +135,9 @@
                     type="button"
                     class="project-filter"
                     data-filter="carpentry"
+                    aria-pressed="false"
                 >
                     Carpentry
-                </button>
-
-                <button
-                    type="button"
-                    class="project-filter"
-                    data-filter="handyman"
-                >
-                    Handyman
                 </button>
 
             </div>
@@ -193,8 +194,8 @@
                         </h3>
 
                         <p>
-                            Exterior deck remodeling and finish
-                            work completed for everyday outdoor use.
+                            Exterior deck remodeling and carpentry work completed
+                            to create a functional and finished outdoor space.
                         </p>
 
                     </div>
@@ -220,8 +221,8 @@
                         </h3>
 
                         <p>
-                            A completed outdoor deck project featuring new
-                            remodel, railings, and finished exterior carpentry.
+                            A completed residential deck remodel featuring
+                            updated decking, railings, and exterior carpentry.
                         </p>
 
                     </div>
@@ -277,8 +278,36 @@
                         </h3>
 
                         <p>
-                            Constructed a new exterior fence to improve
-                            privacy, security, and appearance of the property.
+                            A new exterior fence constructed to improve
+                            privacy, security, and the appearance of the property.
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <!-- Deck 2 -->
+                <article class="portfolio-card"
+                        data-category="decks">
+
+                    <img
+                        src="../images/AfterDeckremodel2.jpg"
+                        alt="Completed deck remodel project by ALX"
+                    >
+
+                    <div class="portfolio-card-content">
+
+                        <p class="project-type">
+                            Exterior Carpentry
+                        </p>
+
+                        <h3>
+                            Deck Remodel
+                        </h3>
+
+                        <p>
+                            Exterior deck remodeling and carpentry work completed
+                            to create a functional and finished outdoor space with Handicap Access.
                         </p>
 
                     </div>
