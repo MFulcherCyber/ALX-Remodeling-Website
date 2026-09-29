@@ -884,14 +884,21 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     margin: 0.4rem 0 0;
 }
 
-.footer-contact-link {
+.footer-contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-style: normal;
+}
+
+.footer-contact-details a {
     color: #f4d887;
     font-weight: 700;
     text-underline-offset: 0.2em;
 }
 
-.footer-contact-link:hover,
-.footer-contact-link:focus-visible {
+.footer-contact-details a:hover,
+.footer-contact-details a:focus-visible {
     color: #fff;
 }
 
