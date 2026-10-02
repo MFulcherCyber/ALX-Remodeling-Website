@@ -26,9 +26,19 @@ h3 {
 }
 
 .site-header {
-    background-color: rgba(3, 48, 36, 0.96);
-    color: #fff;
-    padding: 1rem 2rem;
+    background-color: #123c2e;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.10),
+            rgba(0, 0, 0, 0.10)
+        ),
+        url("../images/header-bg.jpg");
+
+    background-size: auto 220px;
+    background-position: center;
+    background-repeat: repeat-x;
+
     border-bottom: 2px solid #b8923e;
 }
 
@@ -94,17 +104,71 @@ h3 {
     background-color: #edc967;
     transform: translateY(-2px);
 }
+
+.btn {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn:visited {
+    color: #ffffff;
+}
+
 /* Responsive design for tablets and phones */
 
-.nav-links a.active {
-    color: #f4a261;
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.facebook-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    color: #ffffff;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.facebook-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.facebook-link:hover,
+.facebook-link:focus-visible {
+    color: #1877f2;
+    transform: translateY(-2px);
+}
+
+.facebook-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
 }
 
 .page-banner {
-    background-color: rgba(3, 65, 48, 0.96);
+    background-color: #123c2e;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.10),
+            rgba(0, 0, 0, 0.10)
+        ),
+        url("../images/header-bg.jpg");
+
+    background-size: auto 220px;
+    background-position: center;
+    background-repeat: repeat;
+
     color: #fff;
     padding: 5rem 2rem;
     text-align: center;
+
     border-bottom: 1px solid rgba(212, 175, 55, 0.55);
 }
 
@@ -189,6 +253,79 @@ h3 {
     color: #fff;
     padding: 1.5rem;
     text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto 1rem;
+    text-align: left;
+}
+
+.footer-content p {
+    margin: 0.4rem 0 0;
+}
+
+.footer-contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-style: normal;
+}
+
+.footer-contact-details a {
+    color: #f4d887;
+    font-weight: 700;
+    text-underline-offset: 0.2em;
+}
+
+.footer-contact-details a:hover,
+.footer-contact-details a:focus-visible {
+    color: #fff;
+}
+
+.footer-copyright {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.footer-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    width: fit-content;
+
+    color: #f4d887;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.footer-contact-icon {
+    width: 20px;
+    height: 20px;
+
+    display: block;
+    flex: 0 0 20px;
+
+    fill: currentColor;
+}
+
+.footer-link-spacer {
+    width: 20px;
+    flex: 0 0 20px;
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
 .gallery-grid {
     display: grid;
@@ -846,11 +983,6 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     }
 }
 
-.site-header {
-    background-color: rgba(3, 48, 36, 0.96);
-    border-bottom: 2px solid #b8923e;
-}
-
 .logo {
     color: #d4af37;
 }
@@ -912,11 +1044,10 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     display: flex;
     align-items: center;
 
-    background-image:
-        url("../images/alx-logo.png");
-
+    background-image: url("../images/alx-hero-logo.jpg");
     background-size: cover;
-    background-position: center;
+    background-position: center 85%;
+    background-repeat: no-repeat;
 
     color: #fff;
 }
@@ -1133,7 +1264,6 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
     max-width: 1100px;
 
     margin: 5rem auto;
-
     padding: 3rem;
 
     display: flex;
@@ -1143,7 +1273,10 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
 
     gap: 3rem;
 
-    background-color: #0d4f3c;
+   background-image: url("../images/header-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     color: #fff;
 
@@ -1289,4 +1422,127 @@ outline: 3px solid rgba(13, 79, 60, 0.15);
 
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
+}
+
+.header-logo {
+    width: 120px;
+    height: 68px;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+}
+
+@media (max-width: 480px) {
+    .header-logo {
+        width: 64px;
+        height: 64px;
+    }
+}
+
+/* ========================================
+   Homepage Service Area
+======================================== */
+
+.service-area-section {
+    max-width: 1100px;
+    margin: 5rem auto;
+    padding: 3rem 2rem;
+
+    background-color: #123c2e;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.10),
+            rgba(0, 0, 0, 0.10)
+        ),
+        url("../images/header-bg.jpg");
+
+    background-size: auto 220px;
+    background-position: center;
+    background-repeat: repeat;
+
+    color: #fff;
+
+    border: 1px solid rgba(212, 175, 55, 0.55);
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.service-area-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-area-section h2 {
+    margin-bottom: 1rem;
+
+    color: #fff;
+
+    font-size: 2rem;
+}
+
+.service-area-intro {
+    max-width: 700px;
+
+    margin: 0 auto 2rem;
+}
+
+.service-area-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 1rem;
+
+    margin-bottom: 2rem;
+}
+
+.service-area-item {
+    padding: 1rem;
+
+    background-color:
+        rgba(0, 0, 0, 0.35);
+
+    border:
+        1px solid rgba(212, 175, 55, 0.60);
+
+    border-radius: 8px;
+
+    color: #fff;
+
+    font-weight: 700;
+}
+
+.service-area-note {
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+
+    .service-area-section {
+        margin: 3rem 1rem;
+        padding: 2.5rem 1.25rem;
+    }
+
+    .service-area-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .service-area-grid {
+        grid-template-columns: 1fr;
+    }
+
 }
